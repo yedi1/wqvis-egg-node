@@ -71,16 +71,16 @@ module.exports = appInfo => {
     url: '/public/upload/',
   };
 
-  config.view = {
-    defaultViewEngine: 'ejs',
-    mapping: {
-      '.html': 'ejs',
-    },
-  };
+  // config.view = {
+  //   defaultViewEngine: 'ejs',
+  //   mapping: {
+  //     '.html': 'ejs',
+  //   },
+  // };
 
-  config.ejs = {
-    layout: 'layout.html',
-  };
+  // config.ejs = {
+  //   layout: 'layout.html',
+  // };
 
   config.avatars_allow_hostname = [
     'avatars0.githubusercontent.com',

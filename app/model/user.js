@@ -18,18 +18,7 @@ module.exports = app => {
     profile: { type: String },
     weibo: { type: String },
     avatar: { type: String },
-    githubId: { type: String },
-    githubUsername: { type: String },
-    githubAccessToken: { type: String },
     is_block: { type: Boolean, default: false },
-
-    score: { type: Number, default: 0 },
-    topic_count: { type: Number, default: 0 },
-    reply_count: { type: Number, default: 0 },
-    follower_count: { type: Number, default: 0 },
-    following_count: { type: Number, default: 0 },
-    collect_tag_count: { type: Number, default: 0 },
-    collect_topic_count: { type: Number, default: 0 },
     create_at: { type: Date, default: Date.now },
     update_at: { type: Date, default: Date.now },
     is_star: { type: Boolean },
@@ -38,10 +27,6 @@ module.exports = app => {
 
     receive_reply_mail: { type: Boolean, default: false },
     receive_at_mail: { type: Boolean, default: false },
-    from_wp: { type: Boolean },
-
-    retrieve_time: { type: Number },
-    retrieve_key: { type: String },
 
     accessToken: { type: String },
   });
