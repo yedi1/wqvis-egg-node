@@ -11,7 +11,10 @@ module.exports = () => {
       if (ctx.acceptJSON) {
         ctx.body = { error: 'Not Found' };
       } else {
-        await ctx.render('notify/notify', { error: message });
+        // await ctx.render('notify/notify', { error: message });
+        ctx.body = { error_msg: message };
+        ctx.body.success = false;
+        ctx.status = 0;
       }
     }
   };

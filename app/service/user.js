@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-const utility = require('utility');
-const uuid = require('uuid');
-const Service = require('egg').Service;
+const utility = require("utility");
+const uuid = require("uuid");
+const Service = require("egg").Service;
 
 class UserService extends Service {
   /*
@@ -25,7 +25,7 @@ class UserService extends Service {
    * @return {Promise[user]} 承载用户的 Promise 对象
    */
   getUserByLoginName(loginName) {
-    const query = { loginname: new RegExp('^' + loginName + '$', 'i') };
+    const query = { loginname: new RegExp("^" + loginName + "$", "i") };
     return this.ctx.model.User.findOne(query).exec();
   }
 
@@ -90,7 +90,7 @@ class UserService extends Service {
    * @return {Promise[users]} 承载用户列表的 Promise 对象
    */
   getUsersByQuery(query, opt) {
-    return this.ctx.model.User.find(query, '', opt).exec();
+    return this.ctx.model.User.find(query, "", opt).exec();
   }
 
   /*
@@ -139,9 +139,9 @@ class UserService extends Service {
 
   makeGravatar(email) {
     return (
-      'http://www.gravatar.com/avatar/' +
+      "http://www.gravatar.com/avatar/" +
       utility.md5(email.toLowerCase()) +
-      '?size=48'
+      "?size=48"
     );
   }
 

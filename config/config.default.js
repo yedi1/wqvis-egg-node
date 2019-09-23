@@ -82,15 +82,15 @@ module.exports = appInfo => {
   //   layout: 'layout.html',
   // };
 
-  config.avatars_allow_hostname = [
-    'avatars0.githubusercontent.com',
-    'avatars1.githubusercontent.com',
-    'avatars2.githubusercontent.com',
-    'avatars.githubusercontent.com',
-    'www.gravatar.com',
-    'gravatar.com',
-    'www.google-analytics.com',
-  ];
+  // config.avatars_allow_hostname = [
+  //   'avatars0.githubusercontent.com',
+  //   'avatars1.githubusercontent.com',
+  //   'avatars2.githubusercontent.com',
+  //   'avatars.githubusercontent.com',
+  //   'www.gravatar.com',
+  //   'gravatar.com',
+  //   'www.google-analytics.com',
+  // ];
 
   config.auth_cookie_name = 'node_club';
   config.admins = {
@@ -124,10 +124,10 @@ module.exports = appInfo => {
   };
 
   // passport
-  config.passportGithub = {
-    key: process.env.EGG_PASSPORT_GITHUB_CLIENT_ID || 'test',
-    secret: process.env.EGG_PASSPORT_GITHUB_CLIENT_SECRET || 'test',
-  };
+  // config.passportGithub = {
+  //   key: process.env.EGG_PASSPORT_GITHUB_CLIENT_ID || 'test',
+  //   secret: process.env.EGG_PASSPORT_GITHUB_CLIENT_SECRET || 'test',
+  // };
 
   config.passportLocal = {
     usernameField: 'name',
@@ -163,9 +163,18 @@ module.exports = appInfo => {
   config.search = 'google'; // 'google', 'baidu', 'local'
 
   config.security = {
+    // domainWhiteList: [ 'http://127.0.0.1:7001' ],
+    // csrf: {
+    //   ignore: '/api/*/*',
+    // },
     csrf: {
-      ignore: '/api/*/*',
+      enable: false,
     },
+  };
+
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
 
   config.default_page = 1;

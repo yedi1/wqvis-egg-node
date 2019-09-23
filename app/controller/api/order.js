@@ -1,19 +1,27 @@
-'use strict';
+/*
+ * @Author: yedi
+ * @Date: 2019-09-17 15:49:04
+ * @Last Modified by: yedi
+ * @Last Modified time: 2019-09-17 16:08:36
+ * @Title: 订单管理Controller
+ */
+"use strict";
 
-const Controller = require('egg').Controller;
+const Controller = require("egg").Controller;
 // const _ = require('lodash');
 
 class OrderController extends Controller {
-
   async index() {
-    const { ctx, service } = this;
+    const { ctx, service, logger } = this;
     const orders = await service.order.queryOrders();
     // const Order = ctx.request.Order;
+    logger.error("====orders===", orders);
     ctx.body = {
       success: true,
       status: 1,
+      code: 1,
       data: orders,
-      message: '',
+      message: ""
     };
   }
 
@@ -36,19 +44,15 @@ class OrderController extends Controller {
 
     // 储存新订单
 
-    const orders = await ctx.service.order.newAndSave(
-      body
-    );
-
+    const orders = await ctx.service.order.newAndSave(body);
 
     ctx.body = {
       success: true,
       status: 1,
       data: orders,
-      message: '',
+      message: ""
     };
   }
 }
 
 module.exports = OrderController;
-

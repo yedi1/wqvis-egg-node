@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 // const utility = require('utility');
 // const uuid = require('uuid');
-const Service = require('egg').Service;
+const Service = require("egg").Service;
 
 class OrderService extends Service {
   /*
@@ -11,12 +11,9 @@ class OrderService extends Service {
    * @return {Promise[Orders]} 承载用户列表的 Promise 对象
    */
   async queryOrders(obj) {
-
-
     // const query = obj;
     return this.ctx.model.Order.find({}).exec();
   }
-
 
   // incrementScoreAndReplyCount(id, score, replyCount) {
   //   const query = { _id: id };
@@ -35,8 +32,6 @@ class OrderService extends Service {
     // order.companyName = '2222222222222';
     return order.save();
   }
-
-
 }
 
 module.exports = OrderService;

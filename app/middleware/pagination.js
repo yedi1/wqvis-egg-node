@@ -4,7 +4,7 @@
 module.exports = () => {
   return async (ctx, next) => {
     if (!ctx.pagination) {
-
+      // this.service.topic.getCountByQuery(...searchQuery)
       const query = ctx.query;
       const config = ctx.app.config;
       const pagination = {};

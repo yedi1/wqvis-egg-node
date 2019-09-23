@@ -23,10 +23,10 @@ exports.passport = {
   package: 'egg-passport',
 };
 
-exports.passportGithub = {
-  enable: true,
-  package: 'egg-passport-github',
-};
+// exports.passportGithub = {
+//   enable: true,
+//   package: 'egg-passport-github',
+// };
 
 exports.passportLocal = {
   enable: true,
@@ -47,4 +47,9 @@ exports.validate = {
 exports.routerPlus = {
   enable: true,
   package: 'egg-router-plus',
+};
+
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
 };

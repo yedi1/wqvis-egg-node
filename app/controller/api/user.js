@@ -1,3 +1,10 @@
+/* 
+ * @Author: yedi 
+ * @Date: 2019-09-17 15:49:04  
+ * @Last Modified by: yedi
+ * @Last Modified time: 2019-09-17 15:49:30
+ * @Title: 用户管理Controller  
+ */
 'use strict';
 
 const Controller = require('egg').Controller;
@@ -5,19 +12,26 @@ const _ = require('lodash');
 
 class UserController extends Controller {
   async show() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const loginname = ctx.params.loginname;
     const user = await ctx.service.user.getUserByLoginName(loginname);
 
     if (!user) {
       ctx.status = 404;
-      ctx.body = { success: false, error_msg: '用户不存在' };
+      ctx.body = {
+        success: false,
+        error_msg: '用户不存在'
+      };
       return;
     }
 
     const userId = user._id;
-    const topics = await ctx.service.topic.getTopicsByQuery({ author_id: userId });
-    const returnUser = _.pick(user, [ 'loginname', 'avatar_url', 'githubUsername', 'create_at', 'score' ]);
+    const topics = await ctx.service.topic.getTopicsByQuery({
+      author_id: userId
+    });
+    const returnUser = _.pick(user, ['loginname', 'avatar_url', 'githubUsername', 'create_at', 'score']);
     const returnTopics = topics.map(topic => {
       return {
         id: topic._id,
@@ -38,7 +52,9 @@ class UserController extends Controller {
   }
 
   async verify() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const user = ctx.request.user;
     ctx.body = {
       success: true,
