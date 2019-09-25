@@ -1,4 +1,4 @@
-# cnode
+# WQ-CRM-NODE
 
 [![powered by Egg.js][egg-image]][egg]
 [![build status][travis-image]][travis-url]
